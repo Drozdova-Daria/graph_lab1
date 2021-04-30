@@ -5,6 +5,7 @@ import imageio
 import os
 
 
+
 def draw_iter(G, vertexes, path):
     nodes = list(G.nodes())
     colors_node = []
@@ -29,15 +30,11 @@ def create_gif(path):
 
 if __name__ == '__main__':
     graph_dist = {0: [1,2], 1: [2], 2: [3], 3: [1,2]}
-
+    graph = {'A': ['B', 'C'], 'B': ['D', 'E'], 'C': [], 'D': [], 'E': []}
     filename = 'data.txt'
     path = './images/'
-    G = Graph(filename=filename)
-    nx.draw_circular(G.graph, with_labels=True)
-    pyplot.savefig(path + '0.png')
-    vertexes = G.bfs('A')
-    for i in range(1, len(vertexes) + 1):
-        draw_iter(G.graph, vertexes[:i], path + str(i))
+    G = Graph(dict=graph)
 
-    create_gif(path)
-    
+    vertexes = list(G.dfs('A'))
+    print(vertexes)
+    G.draw_graph_path_in_gif(vertexes, path)

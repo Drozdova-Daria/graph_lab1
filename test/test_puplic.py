@@ -1,8 +1,7 @@
 import pytest
 
-from main import graph
 import networkx as nx
-from graph import Graph
+from graph_visualisation.graph import Graph
 BFS = Graph.bfs
 DFS = Graph.dfs
 
@@ -11,9 +10,9 @@ __test_graph_1 = "graph1.txt"
 __test_graph_2 = "graph2.txt"
 __test_graph_3 = "graph3.txt"
 
-graph1 = graph(__test_graph_1)
-graph2 = graph(__test_graph_2)
-graph3 = graph(__test_graph_3)
+graph1 = Graph(filename=__test_graph_1)
+graph2 = Graph(filename=__test_graph_2)
+graph3 = Graph(filename=__test_graph_3)
 
 valid_graphs = [graph1, graph2]
 invalid_graphs = [graph3]
@@ -21,7 +20,7 @@ invalid_graphs = [graph3]
 
 def test_build_graph():
     """
-    Test function for building graph from valid and invalid source files
+    Test function for building graph1 from valid and invalid source files
     """
     for valid_graph in valid_graphs:
         assert valid_graph.get_graph() is not None

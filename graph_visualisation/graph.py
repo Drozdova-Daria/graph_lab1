@@ -1,10 +1,13 @@
+# Class for storing the graph structure
+
 import collections
 import networkx as nx
 
-from draw import Draw
+from graph_visualisation.draw import Draw
 
 
 def read_graph_in_dict(filename):
+    """ Function for reading file in dict"""
     with open(filename) as file:
         graph = collections.defaultdict(list)
         for node in file.readlines():
@@ -14,6 +17,7 @@ def read_graph_in_dict(filename):
 
 
 def create_graph(dict_graph):
+    """ Function for creating graph from dict"""
     G = nx.Graph()
     for root in dict_graph:
         for vertex in dict_graph[root]:
@@ -21,10 +25,8 @@ def create_graph(dict_graph):
     return G
 
 
-
-
-
 class Graph:
+    """ Class for work with graph"""
 
     def __init__(self, filename='', dict=None):
         self.graph = nx.Graph()
@@ -36,6 +38,7 @@ class Graph:
             self.graph = create_graph(self.graph_dict)
 
     def bfs(self, root):
+        """ Breadth-first search (BFS) algorithm"""
         visited, queue = [], collections.deque([root])
         visited.append(root)
         while queue:
@@ -47,6 +50,7 @@ class Graph:
         return visited
 
     def dfs(self, root, visited=None):
+        """ Depth-first search (DFS) algorithm"""
         if visited is None:
             visited = []
         if root not in visited:
@@ -56,5 +60,6 @@ class Graph:
         return visited
 
     def draw_graph_path_in_gif(self, vertexes, path):
+        """ Visualisation path in graph"""
         draw_mode = Draw(self.graph)
         draw_mode.draw_path_gif(path, vertexes)

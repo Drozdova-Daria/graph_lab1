@@ -34,6 +34,7 @@ class Draw:
                 colors_node.append('blue')
         nx.draw_circular(self.graph, node_color=colors_node, with_labels=True)
         pyplot.savefig(path + '.png')
+        pyplot.clf()
 
     def draw_path_gif(self, path, vertexes):
         """ Drawing graph path"""
@@ -41,4 +42,5 @@ class Draw:
         pyplot.savefig(path + '0.png')
         for i in range(1, len(vertexes) + 1):
             self.draw_iter(vertexes[:i], path + str(i))
+
         create_gif(path)

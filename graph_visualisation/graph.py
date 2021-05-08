@@ -11,8 +11,8 @@ def read_graph_in_dict(filename):
     with open(filename) as file:
         graph = collections.defaultdict(list)
         for node in file.readlines():
-            node = node.rstrip('\n').split(", ")
-            graph[node[0]].append(node[1])
+            node = node.rstrip('\n').split(": ")
+            graph[node[0]] = node[1].split(', ')
     return graph
 
 

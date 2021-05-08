@@ -12,7 +12,7 @@ def read_graph_in_dict(filename):
         graph = collections.defaultdict(list)
         for node in file.readlines():
             node = node.rstrip('\n').split(": ")
-            graph[node[0]] = node[1].split(', ')
+            graph[node[0]] = node[1].split(',')
     return graph
 
 

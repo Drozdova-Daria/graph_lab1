@@ -6,9 +6,9 @@ BFS = Graph.bfs
 DFS = Graph.dfs
 
 
-__test_graph_1 = "graph1.txt"
-__test_graph_2 = "graph2.txt"
-__test_graph_3 = "graph3.txt"
+__test_graph_1 = "test/graph1.txt"
+__test_graph_2 = "test/graph2.txt"
+__test_graph_3 = "test/graph3.txt"
 
 graph1 = Graph(filename=__test_graph_1)
 graph2 = Graph(filename=__test_graph_2)

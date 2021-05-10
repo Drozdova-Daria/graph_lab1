@@ -15,7 +15,7 @@ def read_graph_in_dict(filename):
             if len(node) != 2:
                 print('Incorrect file grammar')
                 return None
-            graph[node[0]] = node[1].split(', ')
+            graph[node[0]] = node[1].split(',')
     return graph
 
 

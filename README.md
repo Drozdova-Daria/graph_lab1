@@ -31,10 +31,9 @@ graph = Graph(filename=filename)
 Context of graph.txt file
 
 ```
-A, B
-A, C
-B, A
-C, A
+A: B, C
+B: A
+C: A
 ```
 ### BFS algorithm ###
 

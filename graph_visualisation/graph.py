@@ -12,30 +12,36 @@ def read_graph_in_dict(filename):
         graph = collections.defaultdict(list)
         for node in file.readlines():
             node = node.rstrip('\n').split(": ")
-            graph[node[0]] = node[1].split(', ')
+            if len(node) != 2:
+                print('Incorrect file grammar')
+                return None
+            graph[node[0]] = node[1].split(',')
     return graph
 
 
 def create_graph(dict_graph):
     """ Function for creating graph from dict"""
-    G = nx.Graph()
-    for root in dict_graph:
-        for vertex in dict_graph[root]:
-            G.add_edge(root, vertex)
-    return G
+    if dict_graph is None:
+        return None
+    else:
+        G = nx.Graph()
+        for root in dict_graph:
+            for vertex in dict_graph[root]:
+                G.add_edge(root, vertex)
+        return G
 
 
 class Graph:
     """ Class for work with graph"""
 
     def __init__(self, filename='', dict=None):
-        self.graph = nx.Graph()
         self.graph_dict = dict
         if filename != '':
             self.graph_dict = read_graph_in_dict(filename)
-            self.graph = create_graph(self.graph_dict)
-        elif dict is not None:
-            self.graph = create_graph(self.graph_dict)
+        self.graph = create_graph(self.graph_dict)
+
+    def get_graph(self):
+        return self.graph
 
     def bfs(self, root):
         """ Breadth-first search (BFS) algorithm"""

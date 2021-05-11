@@ -93,6 +93,6 @@ At output get a gif file with a visualisation of the graph path
 
 ## Development team ##
 
-Drozodva Daria
+Drozdova Daria
 
 Medvedeva Taya

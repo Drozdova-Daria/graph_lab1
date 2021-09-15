@@ -8,8 +8,8 @@ BFS = Graph.bfs
 DFS = Graph.dfs
 
 
-__test_graph_1 = "graph1.txt"
-__test_graph_2 = "graph2.txt"
+__test_graph_1 = "test/graph1.txt"
+__test_graph_2 = "test/graph2.txt"
 
 valid_graph = Graph(filename=__test_graph_1)
 invalid_graph = Graph(filename=__test_graph_2)

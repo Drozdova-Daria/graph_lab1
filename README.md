@@ -6,7 +6,7 @@ The project performs visualisation of Depth-first search (DFS) and Breadth-first
 
 ## Realisation ##
 
-The project was created using the package ```networkx```
+The project was created using the package ```networkx```. You can install a package by adding the package path ```networks``` to PATH
 
 ## Example of calling fuctions ##
 
@@ -93,6 +93,6 @@ At output get a gif file with a visualisation of the graph path
 
 ## Development team ##
 
-Drozodva Daria
+Drozdova Daria
 
 Medvedeva Taya
